@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/skyrin/js-request.git"
+  }
+}
