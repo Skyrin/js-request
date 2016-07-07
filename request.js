@@ -58,7 +58,7 @@ const sendRequests = function(url) {
 	}));
 };
 
-export default function(url, request, opts = {}, callback) {
+module.exports = function(url, request, opts = {}, callback) {
 	if (opts.expires) {
 		const key = JSON.stringify(request);
 

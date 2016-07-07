@@ -1,6 +1,6 @@
-import request from './request';
+const request = require('./request');
 
-export default function (url, req, opts) {
+module.exports = function (url, req, opts) {
 	return new Promise(function (resolve, reject) {
 		request(url, req, opts, function (err, res) {
 			if (err) {
@@ -10,4 +10,4 @@ export default function (url, req, opts) {
 			}
 		});
 	});
-}
+};
