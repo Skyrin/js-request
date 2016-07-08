@@ -1,4 +1,4 @@
-const request = require('./request');
+var request = require('./request');
 
 module.exports = function (url, req, opts) {
 	return new Promise(function (resolve, reject) {

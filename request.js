@@ -1,7 +1,7 @@
-const cache = {};
-const timeouts = {};
-const queue = [];
-let id = 0;
+var cache = {};
+var timeouts = {};
+var queue = [];
+var id = 0;
 
 function queryStringify(obj) {
 	return Object.keys(obj).sort().map(function(key) {
@@ -9,14 +9,14 @@ function queryStringify(obj) {
 	}).join('&');
 }
 
-const sendRequests = function(url) {
-	const thisQueue = queue.splice(0);
-	const xhr = new XMLHttpRequest();
+var sendRequests = function(url) {
+	var thisQueue = queue.splice(0);
+	var xhr = new XMLHttpRequest();
 
 	xhr.onload = function(e) {
 		try {
-			const res = JSON.parse(e.target.response);
-			const responses = res && res.responses && Array.isArray(res.responses) ? res.responses : [];
+			var res = JSON.parse(e.target.response);
+			var responses = res && res.responses && Array.isArray(res.responses) ? res.responses : [];
 
 			thisQueue.forEach(function(el, i) {
 				if (responses[i]) {
@@ -60,7 +60,7 @@ const sendRequests = function(url) {
 
 module.exports = function(url, request, opts = {}, callback) {
 	if (opts.expires) {
-		const key = JSON.stringify(request);
+		var key = JSON.stringify(request);
 
 		if (cache[url] && cache[url][key]) {
 			if (cache[url][key].expires > Date.now()) {
