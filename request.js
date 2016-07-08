@@ -58,7 +58,9 @@ var sendRequests = function(url) {
 	}));
 };
 
-module.exports = function(url, request, opts = {}, callback) {
+module.exports = function(url, request, opts, callback) {
+	opts = opts || {};
+
 	if (opts.expires) {
 		var key = JSON.stringify(request);
 
