@@ -75,7 +75,11 @@ module.exports = function(url, request, opts, callback) {
 	if (timeouts[url]) {
 		clearTimeout(timeouts[url]);
 	}
-	queue.push({request, callback, expires: opts.expires});
+	queue.push({
+		request: request,
+		callback: callback,
+		expires: opts.expires
+	});
 	timeouts[url] = setTimeout(function() {
 		sendRequests(url);
 	}, 5);
